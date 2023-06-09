@@ -18,3 +18,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+#new-post {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background-color: grey;
+    width: 80%;
+}
+
+#blog-title {
+    width: 100%;
+}
