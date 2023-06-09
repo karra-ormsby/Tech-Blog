@@ -1,0 +1,15 @@
+.nav-link {
+    color: white !important;
+}
+
+.blog-cards {
+    width: 80%;
+    margin: 1rem 0 1rem 0;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
