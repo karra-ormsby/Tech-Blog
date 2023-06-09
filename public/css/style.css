@@ -7,9 +7,14 @@
     margin: 1rem 0 1rem 0;
 }
 
-.home {
+.post, .dashboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
 }

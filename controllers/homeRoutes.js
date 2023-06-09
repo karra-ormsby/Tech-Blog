@@ -10,8 +10,6 @@ router.get("/", async (req, res) => {
             blogpost.get({ plain: true })
         );
 
-        console.log(blogs)
-
         res.render("homepage", { blogs });
     } catch (err) {
         res.status(500).json(err);

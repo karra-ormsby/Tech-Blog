@@ -1,0 +1,8 @@
+<section class="dashboard">
+    <h3>Your Blog Posts</h3>
+    {{#each blogs as |blog|}}
+    {{> blog-summary}}
+    {{/each}}
+
+    <button>+ New Post</button>
+</section>
