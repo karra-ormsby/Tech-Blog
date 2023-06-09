@@ -9,4 +9,9 @@ router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/post', blogPostRoutes);
 
+
+router.get('/comment', (req, res) => {
+    res.render('new-comment');
+});
+
 module.exports = router;
