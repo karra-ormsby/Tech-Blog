@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { BlogPost, Comment } = require('../models');
 
+// /dashboard
 router.get("/", async (req, res) => {
     try {
         const blogData = await BlogPost.findAll();
@@ -22,6 +23,11 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
         console.log(err)
     }
+});
+
+// /dashboard/new
+router.get('/new', (req, res) => {
+    res.render('new-post');
 });
 
 module.exports = router;

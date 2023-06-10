@@ -26,8 +26,9 @@ btn.addEventListener("click", function (event) {
     })
     .then(response => {
         if (response.ok) {
-            console.log('Data saved successfully');
-            alert("Post Added")
+            // console.log('Data saved successfully');
+            // alert("Post Added")
+            document.location.replace(`/dashboard`);
         } else {
             console.error('Failed to save data');
         }

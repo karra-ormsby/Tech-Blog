@@ -7,6 +7,10 @@
     margin: 1rem 0 1rem 0;
 }
 
+.comment-card {
+    width: 80%;
+}
+
 .post, .dashboard {
     display: flex;
     flex-direction: column;
@@ -31,4 +35,14 @@ form {
 
 #blog-title {
     width: 100%;
+}
+
+h3 {
+    text-align: center;
+}
+
+form {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
 }
