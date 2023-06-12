@@ -36,23 +36,4 @@ router.get('/comment', (req, res) => {
     res.render('new-comment');
 });
 
-// router.get('/post/:id', async (req, res) => {
-//     try {
-//         const postData = await BlogPost.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: Comment
-//                 },
-//             ],
-//         });
-
-//         const post = postData.get({ plain: true });
-
-//         console.log(post)
-
-//         res.render('post', post);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 module.exports = router;

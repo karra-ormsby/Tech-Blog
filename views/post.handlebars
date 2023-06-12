@@ -1,4 +1,4 @@
-<div class="blog-cards card">
+<div class="post card ">
     <div class="card-header" id= "blog" data-id="{{id}}">
         <div class="blog-title">
             {{title}}
@@ -16,14 +16,14 @@
 <div class="comment-card">
     {{#each comments}}
     <div class="blog-cards card">
-        <div class="card-header">
-        </div>
+        {{!-- <div class="card-header">
+        </div> --}}
         <div class="card-body">
             <div class="blog-title">
                 {{comment}}
             </div>
-            <div class="blog-author">
-                posted by {{user_id}}
+            <div class="comment-author">
+                ~ {{user_id}}
                 {{!-- on {{date_created}} --}}
             </div>
         </div>
@@ -31,14 +31,12 @@
     {{/each}}
 </div>
 
-<section id="new-comment">
-    <form>
-        <div class="mb-3">
-            <label for="blog-comment" class="form-label">Comment</label>
-            <textarea class="form-control" id="blog-comment" rows="3"></textarea>
-        </div>
-        <button id="add-comment">Add Comment</button>
-    </form>
-</section>
+<form id="new-comment">
+    <div class="mb-3">
+        <label for="blog-comment" class="form-label">Comment</label>
+        <textarea class="form-control" id="blog-comment" rows="3"></textarea>
+    </div>
+    <button id="add-comment">Add Comment</button>
+</form>
 
 <script src="/js/new-comment.js"></script>

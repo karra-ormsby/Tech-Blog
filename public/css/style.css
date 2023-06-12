@@ -1,4 +1,10 @@
+
+main {
+    font-size: 18px;
+}
+
 /* ---------- nav bar ---------- */
+
 .navbar-brand {
     color: rgb(70, 70, 255);
     font-size: 30px !important;
@@ -8,4 +14,76 @@
     color: white  !important;
 }
 
+/* ---------- all ---------- */
+
+.post {
+    margin: 2rem 10rem 0 10rem;
+}
+
+form {
+    background-color: #BCBCBC;
+    padding: 2rem 1rem 2rem 1rem;
+    border-radius: 10px;
+    margin: 2rem 10rem 0 10rem;
+}
+
+button {
+    width: 100%;
+    font-size: 18px;
+}
+
 /* ---------- homepage ---------- */
+
+.blog-cards {
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog-title a {
+    color: black;
+}
+.blog-title a:hover {
+    color: black;
+}
+
+.comment-author {
+    color: gray;
+}
+
+/* ---------- posts ---------- */
+
+.comment-card{
+    margin: 0 10rem 0 10rem;
+}
+
+.blog-cards {
+    margin-top: 2rem;
+}
+
+.form-label {
+    font-size: 18px;
+}
+
+/* ---------- dashboard ---------- */
+
+.dashboard {
+    text-align: center;
+}
+
+#new-post {
+    width: 20%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+#update-post {
+    margin-bottom: 1rem;
+}
+
