@@ -32,38 +32,29 @@ router.post('/login', async (req, res) => {
         });
 
         if (!userData) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect username or password. Please try again!' });
-            alert('Incorrect username or password. Please try again!');
-            return;
+            return res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!' });
-                alert('Incorrect username or password. Please try again!');
-            return;
+            return res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
         }
 
         req.session.save(() => {
             req.session.logged_in = true;
             req.session.user_id = userData.dataValues.id;
             req.session.username = userData.dataValues.username;
-            
-            res
-                .status(200)
-                .json({ user: userData, message: 'You are now logged in!' });
+
+            return res.status(200).json({ user: userData, message: 'You are now logged in!' });
         });
 
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+        return res.status(500).json({ message: 'An error occurred. Please try again later.' });
     }
 });
+
 
 // Logout
 router.post('/logout', (req, res) => {

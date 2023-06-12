@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { json } = require('body-parser');
-const { BlogPost } = require('../../models');
+const { BlogPost, Comment } = require('../../models');
 
 // The `/api/post` endpoint
 
@@ -64,13 +64,20 @@ router.put('/:id', async (req, res) => {
 //DELETE blog by id
 router.delete('/:id', async (req, res) => {
     try {
-        const postData = await BlogPost.destroy({
-            where: {
-                id: req.params.id
-            }
+        // Find the blog by ID and include its comments
+        const blog = await BlogPost.findByPk(req.params.id, {
+            include: [Comment],
         });
 
-        res.status(200).json(postData);
+        // Delete the comments associated with the blog
+        await Comment.destroy({
+            where: { blog_id: blog.id },
+        });
+
+        // Delete the blog
+        await blog.destroy();
+
+        res.status(200).json(blog);
     } catch (err) {
         res.status(500).json(err);
         console.log(err);
