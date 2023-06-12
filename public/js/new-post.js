@@ -1,4 +1,4 @@
-const btn = document.querySelector("#create-post");
+ const btn = document.querySelector("#create-post");
 
 
 
@@ -11,14 +11,11 @@ btn.addEventListener("click", function (event) {
     console.log(title);
     console.log(content)
 
-    const user_id = 1;
-
     fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify({
             title,
             content,
-            user_id
         }),
         headers: {
             'Content-Type': 'application/json'

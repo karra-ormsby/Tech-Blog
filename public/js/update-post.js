@@ -10,14 +10,11 @@ updateBtn.addEventListener("click", function (event) {
     const title = document.getElementById("blog-title").value;
     const content = document.getElementById("blog-content").value;
 
-    const user_id = 1;
-
     fetch(`/api/post/${blog_id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
             content,
-            user_id
         }),
         headers: {
             'Content-Type': 'application/json'

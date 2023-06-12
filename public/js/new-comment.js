@@ -10,14 +10,10 @@ btn.addEventListener("click", function (event) {
     
     console.log(comment)
 
-    const user_id = 1;
-    // const blog_id = blogId;
-
     fetch('/api/comment', {
         method: 'POST',
         body: JSON.stringify({
             comment,
-            user_id,
             blog_id
         }),
         headers: {

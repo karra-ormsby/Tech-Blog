@@ -10,9 +10,9 @@ router.post('/signup', async (req, res) => {
         });
 
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
             req.session.user_id = userData.dataValues.id;
-            req.session.name = userData.dataValues.name;
+            req.session.username = userData.dataValues.username;
 
             res.status(200).json(userData);
         });
@@ -41,8 +41,6 @@ router.post('/login', async (req, res) => {
 
         const validPassword = await userData.checkPassword(req.body.password);
 
-        console.log(validPassword);
-
         if (!validPassword) {
             res
                 .status(400)
@@ -52,15 +50,30 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
+            req.session.user_id = userData.dataValues.id;
+            req.session.username = userData.dataValues.username;
             
             res
                 .status(200)
                 .json({ user: userData, message: 'You are now logged in!' });
         });
+
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+    }
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+            res.render("homepage");
+        });
+    } else {
+        res.status(404).end();
     }
 });
 

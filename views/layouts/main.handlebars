@@ -23,16 +23,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
-                    {{!-- <li>
-                        {{#if logged_in}}
-                        <button id="logout" action="/users/logout" method="POST"> <i class="bi bi-person-fill"></i> Logout</button> --}}
-                        {{!-- {{else}}
-                        <a class="nav-link" href="/login">Log In</a> --}}
-                        {{!-- {{/if}}
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Log In</a>
-                    </li>
+                    {{#if logged_in}}
+                    <button id="logout" action="/users/logout" method="POST">Logout</button>
+                    {{else}}
+                    <a class="nav-link" href="/login">Log In</a>
+                    {{/if}}
                 </ul>
             </div>
         </div>
@@ -43,4 +38,7 @@
         {{{body}}}
     </main>
 </body>
+
+<script src="/js/logout.js"></script>
+
 </html>

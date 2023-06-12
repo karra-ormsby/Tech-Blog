@@ -4,15 +4,27 @@ const { BlogPost, Comment, User } = require('../models');
 // /dashboard
 router.get("/", async (req, res) => {
     try {
-        const blogData = await BlogPost.findAll({
-            // where: { user_id: req.session.user_id },
-        });
+        if (req.session.logged_in) {
+            const blogData = await BlogPost.findAll({
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                ],
+                    where: { user_id: req.session.user_id },
+            });
 
-        const blogs = blogData.map((blogpost) =>
-            blogpost.get({ plain: true })
-        );
+            const blogs = blogData.map((blogpost) =>
+                    blogpost.get({ plain: true })
+            );
 
-        res.render("dashboard", { blogs });
+            console.log(blogs)
+
+            res.render("dashboard", { blogs, logged_in: req.session.logged_in });
+        } else {
+            res.render('login');
+        }
     } catch (err) {
         res.status(500).json(err);
         console.log(err)
@@ -21,7 +33,7 @@ router.get("/", async (req, res) => {
 
 // /dashboard/new
 router.get('/new', (req, res) => {
-    res.render('new-post');
+    res.render('new-post', { logged_in: req.session.logged_in });
 });
 
 // /dashboard/:id
@@ -39,7 +51,7 @@ router.get('/:id', async (req, res) => {
 
         console.log(post)
 
-        res.render('dashboard-blog', post);
+        res.render('dashboard-blog', { post, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
     }
