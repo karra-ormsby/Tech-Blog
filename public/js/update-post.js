@@ -1,8 +1,7 @@
-const updateBtn = document.querySelector("#update-post");
+const updateBtn = document.querySelector("#update-post-button");
 const deleteBtn = document.querySelector("#delete-post");
-const blog = document.getElementById("new-post")
+const blog = document.getElementById("update-post")
 const blog_id = blog.getAttribute("data-id");
-
 
 updateBtn.addEventListener("click", function (event) {
     event.preventDefault();

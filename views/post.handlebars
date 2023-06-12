@@ -5,7 +5,7 @@
         </div>
         <div class="blog-author">
             Posted by {{user_id}}
-            {{!-- on {{date_created}} --}}
+            on {{ format_date date_created }}
         </div>
     </div>
     <div class="card-body">
@@ -23,8 +23,8 @@
                 {{comment}}
             </div>
             <div class="blog-author">
-                posted by {{user_id}}
-                {{!-- on {{date_created}} --}}
+                ~ {{user_id}}
+                on {{ format_date date_created }}
             </div>
         </div>
     </div>

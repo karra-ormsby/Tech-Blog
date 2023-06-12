@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 
         console.log(post)
 
-        res.render('post', { post, logged_in: req.session.logged_in });
+        res.render('post', post);
     } catch (err) {
         res.status(500).json(err);
     }

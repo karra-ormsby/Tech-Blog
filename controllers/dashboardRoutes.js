@@ -39,19 +39,13 @@ router.get('/new', (req, res) => {
 // /dashboard/:id
 router.get('/:id', async (req, res) => {
     try {
-        const postData = await BlogPost.findByPk(req.params.id, {
-            include: [
-                {
-                    model: Comment
-                },
-            ],
-        });
+        const postData = await BlogPost.findByPk(req.params.id);
 
         const post = postData.get({ plain: true });
 
         console.log(post)
 
-        res.render('dashboard-blog', { post, logged_in: req.session.logged_in });
+        res.render('dashboard-blog', post);
     } catch (err) {
         res.status(500).json(err);
     }
