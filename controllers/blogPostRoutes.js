@@ -1,35 +1,34 @@
 const router = require('express').Router();
 const { BlogPost, Comment } = require('../models');
 
-// route /post
+// '/post' endpoint
 
+// /post
 router.get('/', (req, res) => {
     res.render('new-post');
 });
 
+// /post/:id
 //GET blog post by id
 router.get('/:id', async (req, res) => {
     try {
-        const postInfo = await BlogPost.findByPk(req.params.id, {
+        const postData = await BlogPost.findByPk(req.params.id, {
             include: [
                 {
-                    model: Comment,
+                    model: Comment
                 },
             ],
         });
 
-        console.log("postInfo: ", postInfo);
+        const post = postData.get({ plain: true });
 
-        const blog = postInfo.map((blogpost) =>
-            blogpost.get({ plain: true })
-        );
+        console.log(post)
 
-        console.log("blog: ", blog);
-
-        res.render("post", { blog });
+        res.render('post', post);
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
 
 module.exports = router;

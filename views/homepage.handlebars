@@ -1,7 +1,19 @@
 <section class="post">
     {{#each blogs as |blog|}}
-        {{> blog-details}}
+        <div class="blog-cards card">
+            <div class="card-header" data-id="{{id}}">
+                <div class="blog-title">
+                    <a href="/post/{{id}}">{{title}}</a>
+                    {{!-- {{title}} --}}
+                </div>
+                <div class="blog-author">
+                    Posted by {{user_id}}
+                    {{!-- on {{date_created}} --}}
+                </div>
+            </div>
+            <div class="card-body">
+                {{content}}
+            </div>
+        </div>
     {{/each}}
 </section>
-
-<script src="/js/posts.js"></script>

@@ -24,4 +24,26 @@ router.get('/new', (req, res) => {
     res.render('new-post');
 });
 
+// /dashboard/:id
+router.get('/:id', async (req, res) => {
+    try {
+        const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment
+                },
+            ],
+        });
+
+        const post = postData.get({ plain: true });
+
+        console.log(post)
+
+        res.render('dashboard-blog', post);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 module.exports = router;

@@ -17,7 +17,7 @@ async function fetchPost(id) {
         },
     });
     if (response.ok) {
-        document.location.replace(`/post/${id}`);
+        document.location.replace(`/login`);
     } else {
         alert('Failed to fetch post');
     }

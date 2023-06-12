@@ -11,6 +11,8 @@ router.post('/signup', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.user_id = userData.dataValues.id;
+            req.session.name = userData.dataValues.name;
 
             res.status(200).json(userData);
         });
@@ -38,6 +40,8 @@ router.post('/login', async (req, res) => {
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
+
+        console.log(validPassword);
 
         if (!validPassword) {
             res

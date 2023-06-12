@@ -1,48 +1,11 @@
+/* ---------- nav bar ---------- */
+.navbar-brand {
+    color: rgb(70, 70, 255);
+    font-size: 30px !important;
+}
+
 .nav-link {
-    color: white !important;
+    color: white  !important;
 }
 
-.blog-cards {
-    width: 80%;
-    margin: 1rem 0 1rem 0;
-}
-
-.comment-card {
-    width: 80%;
-}
-
-.post, .dashboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-#new-post {
-    display: flex;
-    justify-content: center;
-}
-
-form {
-    background-color: grey;
-    width: 80%;
-}
-
-#blog-title {
-    width: 100%;
-}
-
-h3 {
-    text-align: center;
-}
-
-form {
-    background-color: grey;
-    display: flex;
-    flex-direction: column;
-}
+/* ---------- homepage ---------- */

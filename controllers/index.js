@@ -3,7 +3,7 @@ const apiRoutes = require('./api');
 const dashboardRoutes = require('./dashboardRoutes');
 const blogPostRoutes = require('./blogPostRoutes');
 
-const { BlogPost } = require('../models');
+const { BlogPost, Comment } = require('../models');
 
 router.use('/api', apiRoutes);
 router.use('/dashboard', dashboardRoutes);
@@ -36,4 +36,23 @@ router.get('/comment', (req, res) => {
     res.render('new-comment');
 });
 
+// router.get('/post/:id', async (req, res) => {
+//     try {
+//         const postData = await BlogPost.findByPk(req.params.id, {
+//             include: [
+//                 {
+//                     model: Comment
+//                 },
+//             ],
+//         });
+
+//         const post = postData.get({ plain: true });
+
+//         console.log(post)
+
+//         res.render('post', post);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 module.exports = router;

@@ -1,11 +1,21 @@
 <section class="dashboard">
     <h3>Your Blog Posts</h3>
     {{#each blogs as |blog|}}
-    {{> blog-summary}}
+    <div class="blog-cards card">
+        <div class="card-header" data-id="{{id}}">
+            <div class="blog-title">
+                <a href="/dashboard/{{id}}">{{title}}</a>
+            </div>
+            <div class="blog-author">
+                Posted by {{user_id}}
+                {{!-- on {{date_created}} --}}
+            </div>
+    
+        </div>
+    </div>
     {{/each}}
 
     <button id="new-post">+ New Post</button>
 </section>
 
-{{!-- <script src="/js/blog-post.js"></script> --}}
 <script src="/js/dashboard.js"></script>

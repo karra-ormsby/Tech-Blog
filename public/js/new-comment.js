@@ -1,4 +1,7 @@
 const btn = document.querySelector("#add-comment");
+const blog = document.getElementById("blog")
+const blog_id = blog.getAttribute("data-id");
+
 
 btn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -8,7 +11,7 @@ btn.addEventListener("click", function (event) {
     console.log(comment)
 
     const user_id = 1;
-    const blog_id = 2;
+    // const blog_id = blogId;
 
     fetch('/api/comment', {
         method: 'POST',
@@ -23,8 +26,7 @@ btn.addEventListener("click", function (event) {
     })
     .then(response => {
         if (response.ok) {
-            console.log('Data saved successfully');
-            alert("Post Added")
+            document.location.replace(`/post/${blog_id}`);
         } else {
             console.error('Failed to save data');
         }
