@@ -87,3 +87,19 @@ button {
     margin-bottom: 1rem;
 }
 
+/* ---------- login-form & signup-form---------- */
+
+.login-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    margin-top: 1rem;
+}
+
+.redirection {
+    text-align: end;
+    margin-right: 10rem;
+    margin-top: 0.5rem;
+}
