@@ -135,3 +135,10 @@ button {
 #logout {
     font-family: 'Orbit', sans-serif;
 }
+
+
+@media screen and (max-width: 992px) {
+    nav {
+        text-align: center;
+    }
+}
