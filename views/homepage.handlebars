@@ -1,10 +1,10 @@
-<section class="post">
+<section class="post row">
     {{#each blogs as |blog|}}
-        <div class="blog-cards card">
+        <div class="col-1"></div>
+        <div class="blog-cards card col-10">
             <div class="card-header" data-id="{{id}}">
                 <div class="blog-title">
                     <a href="/post/{{id}}">{{title}}</a>
-                    {{!-- {{title}} --}}
                 </div>
                 <div class="blog-author">
                     Posted by {{user.username}}
@@ -15,5 +15,6 @@
                 {{content}}
             </div>
         </div>
+        <div class="col-1"></div>
     {{/each}}
 </section>

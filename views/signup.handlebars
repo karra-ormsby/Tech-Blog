@@ -1,9 +1,13 @@
-<form action="/users/signup" method="POST" class="signup-form">
-    <label for="name">Username:</label>
-    <input type="text" id="name" name="name" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <button id="submit" type="submit">Sign Up</button>
-</form>
+<section class="post row">
+    <div class="col-1"></div>
+    <form action="/users/signup" method="POST" class="signup-form col-10">
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button id="submit" class="button" type="submit">Sign Up</button>
+    </form>
+    <div class="col-1"></div>
+</section>
 
 <script src="/js/signup.js"></script>

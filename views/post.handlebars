@@ -1,41 +1,51 @@
-<div class="post card ">
-    <div class="card-header" id= "blog" data-id="{{blog.id}}">
-        <div class="blog-title">
-            {{blog.title}}
+<section class="post row">
+    <div class="col-1"></div>
+    <div class="blog-cards card col-10">
+        <div class="card-header" id= "blog" data-id="{{blog.id}}">
+            <div class="blog-title">
+                <a href="/post/{{id}}">{{blog.title}}</a>
+            </div>
+            <div class="blog-author">
+                Posted by {{blog.user.username}}
+                on {{ format_date blog.date_created }}
+            </div>
         </div>
-        <div class="blog-author">
-            Posted by {{blog.user.username}}
-            on {{ format_date blog.date_created }}
+        <div class="card-body">
+            {{blog.content}}
         </div>
     </div>
-    <div class="card-body">
-        {{blog.content}}
-    </div>
-</div>
+    <div class="col-1"></div>
+</section>
 
-<div class="comment-card">
+<section class="comment-card row">
     {{#each commentInfo}}
-    <div class="blog-cards card">
+    <div class="col-1"></div>
+    <div class="blog-cards card col-10">
         {{!-- <div class="card-header">
         </div> --}}
         <div class="card-body">
             <div class="blog-title">
                 {{comment}}
             </div>
-            <div class="blog-author">
+            <div class="comment-author">
                 ~ {{user.username}}, {{ format_date date_created }}
             </div>
         </div>
     </div>
+    <div class="col-1"></div>
     {{/each}}
-</div>
+</section>
 
-<form id="new-comment">
-    <div class="mb-3">
-        <label for="blog-comment" class="form-label">Comment</label>
-        <textarea class="form-control" id="blog-comment" rows="3"></textarea>
-    </div>
-    <button id="add-comment">Add Comment</button>
-</form>
+<section class="row">
+    <div class="col-1"></div>
+    <form id="new-comment" class="col-10">
+        <div class="mb-3">
+            <label for="blog-comment" class="form-label">Comment</label>
+            <textarea class="form-control" id="blog-comment" rows="3"></textarea>
+        </div>
+        <button id="add-comment" class="button">Add Comment</button>
+    </form>
+    <div class="col-1"></div>
+</section>
 
 <script src="/js/new-comment.js"></script>
