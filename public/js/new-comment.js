@@ -19,10 +19,15 @@ btn.addEventListener("click", function (event) {
         },
     })
     .then(response => {
+        console.log(response);
         if (response.ok) {
             document.location.replace(`/post/${blog_id}`);
+            console.log('ok')
         } else {
             console.error('Failed to save data');
+            if(response.statusText === "Unauthorized") {
+                alert("Please login to leave a comment");
+            }
         }
     })
     .catch(error => {

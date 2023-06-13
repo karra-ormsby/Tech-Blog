@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
             res.status(200).json(newComment);
         } else {
             console.log("Please login or signup to add a comment.");
+            res.status(401).send("Unauthorized");
         }
     } catch (err) {
         res.status(500).json(err);
