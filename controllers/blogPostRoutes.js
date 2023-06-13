@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
         console.log('commentInfo: ', commentInfo);
 
 
-        res.render('post', { blog, commentInfo });
+        res.render('post', { blog, commentInfo, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
         consolelog(err)
