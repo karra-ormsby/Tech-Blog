@@ -1,12 +1,6 @@
 const addPostBtn = document.getElementById("new-post");
 
-addPostBtn.addEventListener("click", function(event) {
-    console.log("new post +");
-    
-    newPost();
-});
-
-async function newPost() {
+const newPost = async () => {
     const response = await fetch(`/dashboard/new`, {
         method: 'GET',
         headers: {
@@ -19,3 +13,8 @@ async function newPost() {
         alert('Failed to fetch post');
     }
 }
+
+addPostBtn.addEventListener("click", function(event) {
+    newPost();
+});
+

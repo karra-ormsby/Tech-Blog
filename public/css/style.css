@@ -81,7 +81,7 @@ button {
 }
 
 .comment-author {
-    color: #A6A6A6;
+    color: grey;
 }
 
 /* ---------- dashboard ---------- */
@@ -90,7 +90,7 @@ button {
     text-align: center;
 }
 
-.new-blog {
+.new-blog, #update-post {
     margin-top: 2rem !important;
 }
 
@@ -130,4 +130,8 @@ button {
     cursor: pointer;
     outline: inherit;
     color: white;
+}
+
+#logout {
+    font-family: 'Orbit', sans-serif;
 }

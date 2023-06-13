@@ -4,8 +4,11 @@ const signupFormHandler = async (event) => {
     const username = document.querySelector('#name').value.trim();
     const password = document.querySelector('#password').value.trim();
 
-    console.log(username);
-    console.log(password);
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+        alert('Password must contain at least 8 characters,1 capital letter and 1 number.');
+        return;
+    };
 
     if (username && password) {
         const response = await fetch('/api/users/signup', {

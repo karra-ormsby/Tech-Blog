@@ -23,8 +23,6 @@ router.get('/:id', async (req, res) => {
 
         const blog = blogData.get({ plain: true });
 
-        console.log('blog: ', blog);
-
         const commentData = await Comment.findAll({
             include: [
                 {
@@ -38,9 +36,6 @@ router.get('/:id', async (req, res) => {
         const commentInfo = commentData.map((comment) =>
             comment.get({ plain: true })
         );
-
-        console.log('commentInfo: ', commentInfo);
-
 
         res.render('post', { blog, commentInfo, logged_in: req.session.logged_in });
     } catch (err) {

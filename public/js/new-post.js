@@ -8,9 +8,6 @@ btn.addEventListener("click", function (event) {
     const title = document.getElementById("blog-title").value;
     const content = document.getElementById("blog-content").value;
 
-    console.log(title);
-    console.log(content)
-
     fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify({
