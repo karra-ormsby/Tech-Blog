@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, Comment, User } = require('../models');
+const { BlogPost, User } = require('../models');
 
 // /dashboard
 router.get("/", async (req, res) => {
@@ -18,8 +18,6 @@ router.get("/", async (req, res) => {
             const blogs = blogData.map((blogpost) =>
                     blogpost.get({ plain: true })
             );
-
-            console.log(blogs)
 
             res.render("dashboard", { blogs, logged_in: req.session.logged_in });
         } else {
@@ -45,7 +43,7 @@ router.get('/:id', async (req, res) => {
 
         console.log(post)
 
-        res.render('dashboard-blog', post);
+        res.render('dashboard-blog', { post, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
     }

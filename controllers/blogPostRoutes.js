@@ -12,21 +12,40 @@ router.get('/', (req, res) => {
 //GET blog post by id
 router.get('/:id', async (req, res) => {
     try {
-        const postData = await BlogPost.findByPk(req.params.id, {
+        const blogData = await BlogPost.findByPk(req.params.id, {
             include: [
                 {
-                    model: Comment
+                    model: User,
+                    attributes: ['username'],
                 },
             ],
         });
 
-        const post = postData.get({ plain: true });
+        const blog = blogData.get({ plain: true });
 
-        console.log(post)
+        console.log('blog: ', blog);
 
-        res.render('post', post);
+        const commentData = await Comment.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
+            where: { blog_id: blog.id },
+        })
+
+        const commentInfo = commentData.map((comment) =>
+            comment.get({ plain: true })
+        );
+
+        console.log('commentInfo: ', commentInfo);
+
+
+        res.render('post', { blog, commentInfo });
     } catch (err) {
         res.status(500).json(err);
+        consolelog(err)
     }
 });
 

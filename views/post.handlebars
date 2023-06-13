@@ -1,20 +1,20 @@
 <div class="post card ">
-    <div class="card-header" id= "blog" data-id="{{id}}">
+    <div class="card-header" id= "blog" data-id="{{blog.id}}">
         <div class="blog-title">
-            {{title}}
+            {{blog.title}}
         </div>
         <div class="blog-author">
-            Posted by {{user_id}}
-            on {{ format_date date_created }}
+            Posted by {{blog.user.username}}
+            on {{ format_date blog.date_created }}
         </div>
     </div>
     <div class="card-body">
-        {{content}}
+        {{blog.content}}
     </div>
 </div>
 
 <div class="comment-card">
-    {{#each comments}}
+    {{#each commentInfo}}
     <div class="blog-cards card">
         {{!-- <div class="card-header">
         </div> --}}
@@ -23,7 +23,7 @@
                 {{comment}}
             </div>
             <div class="blog-author">
-                ~ {{user_id}}
+                ~ {{username}}
                 on {{ format_date date_created }}
             </div>
         </div>

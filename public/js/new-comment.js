@@ -9,6 +9,7 @@ btn.addEventListener("click", function (event) {
     const comment = document.getElementById("blog-comment").value;
     
     console.log(comment)
+    console.log(blog_id)
 
     fetch('/api/comment', {
         method: 'POST',
