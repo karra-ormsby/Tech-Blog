@@ -13,7 +13,7 @@ I have created a tech blog where developers can publish their blog posts and com
 
 ## Installation
 
-No installation necessary. You can view the application at: https://my-tech-blog-2023.herokuapp.com/
+No installation necessary. You can view the application at: https://my-tech-blog-2023-238a1416fbe6.herokuapp.com/
 
 ## Usage
 
